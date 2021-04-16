@@ -158,7 +158,8 @@ bool Rectangle::operator==(Rectangle& r){
         return true;
     if ((x == r.x) && (y == r.y) && (height == r.height) && (width == r.width))
         return true; 
-    else return false;
+    else 
+        return false;
 }
 
 ostream& operator<<(ostream& os, Rectangle& r){
