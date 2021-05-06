@@ -24,7 +24,7 @@ class List {
 
 };
 
-/*
+
 class OrderedList {
     private :
 
@@ -45,7 +45,7 @@ class OrderedList {
     void print();
 
 };
-*/
+
 
 template <typename T> 
 List<T>::List(){
