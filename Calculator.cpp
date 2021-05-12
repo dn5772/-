@@ -12,7 +12,8 @@ class Calculator
     int errCode;                  // 발생된 오류코드 값 : 0 -> 오류 없음 , 다른 값 -> 오류 있음
     int value;                     // 계산된 값
     String postfix;             // 후위표기식 = 최초 공백으로 초기화
-    int makePostFix();         // postfix 로 변경하는 함수 : 
+    int makePostFix();         // postfix 로 변경하는 함수 :
+    int a;
 
                                        // 오류 없는경우, 0, 오류가 있는 경우, 1을 반환 
 
@@ -34,6 +35,5 @@ class Calculator
     String getPostFix();                            // 변환된 후위표기식을 반환   --> 오류가 있을경우 최초값인 공백이 리턴
     int getValue();                                   // 수식 오류있음 --> 예외발생
                                                       // 수식 오류없음 --> 결과값 리턴
-
 };
 
