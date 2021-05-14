@@ -11,8 +11,8 @@ class Calculator
     List<String> tokens; 
     int errCode;                  // 발생된 오류코드 값 : 0 -> 오류 없음 , 다른 값 -> 오류 있음
     int value;                     // 계산된 값
-    String postfix;             // 후위표기식 = 최초 공백으로 초기화
-    int makePostFix();         // postfix 로 변경하는 함수 :
+    String postfix;             
+    int makePostFix();         
     int a;
 
                                        // 오류 없는경우, 0, 오류가 있는 경우, 1을 반환 
