@@ -123,6 +123,7 @@ int Calculator::makePostFix(){
                     if (s == op.getItem(j))
                         stackCase = j;
                 }
+                
 
                 switch (tokenCase) {
                     case 1 :
