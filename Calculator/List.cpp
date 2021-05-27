@@ -1,4 +1,5 @@
 #include <iostream>
+//#include "String.cpp"
 using namespace std;
 
 template <typename T>
@@ -18,7 +19,7 @@ class List {
     int getItemCount();
     void addItem(T itm);
     void insertItem(int index,T itm);
-    int removeAt(int index);
+    T removeAt(int index);
     T removeItem(T itm);
     void concat(List& list);
     void print();
@@ -39,8 +40,9 @@ List<T>::~List(){
 
 template <typename T> 
 T List<T>::getItem(int index){
-    if (0 <= index && index < itemCount)
-        return items[index];
+    if (0 > index && index >= itemCount)
+        throw "Index Err";
+    return items[index];
 }
 
 template <typename T> 
@@ -50,15 +52,17 @@ void List<T>::addItem(T itm){
         itemCount++;
     }
     else {
-        int *newItems = new int[size*2];
+        T *newItems = new T[size*2];
         for (int i=0; i<itemCount; i++)
             newItems[i] = items[i];
         newItems[itemCount] = itm;
         itemCount++;
-        delete[] items;1
+        delete[] items;
         items = newItems;
         size = size * 2;
     }
+
+    //cout << itm << "add itme $" << endl;
 }
 
 template <typename T>
@@ -85,22 +89,19 @@ void List<T>::insertItem(int index,T itm){
 }
 
 template <typename T> 
-int List<T>::removeAt(int index){
-    if (0 <= index && index < itemCount){
-        int tmp = items[index];
+T List<T>::removeAt(int index){
+    if (!itemCount){
+        throw "List is empty. Cannot delete";
+    }
+        T tmp = items[index];
         for (int i=index; i<itemCount; i++){
             items[i] = items[i+1];
         }
         itemCount--;
         return tmp;
-    }
-
-    else
-        return -99999;
-
 }
 
-template <typename T> 
+template <typename T>
 T List<T>::removeItem(T itm){
     for (int i=0; i<itemCount; i++){
         if (items[i]==itm){
@@ -126,20 +127,33 @@ void List<T>::print(){
     for (int i=0; i<itemCount; i++)
         cout << items[i] << endl;
 }
+
 /*
 int main(){
     char list, c;
     bool loop = 1;
 
-    cout << "1 : List\n2 : OrderedList" << endl;
+    List<String> op;
+    String a, b;
+    String nu((char*)"\0", 1);
+    String sp((char*)" ", 1);
+    String pl((char *)"+", 1), mi((char *)"-", 1), mu((char *)"*", 1), di((char *)"/", 1), pal((char *)"(", 1), par((char *)")", 1);
 
-    cin >> list;
+    op.addItem(nu);op.addItem(pl);op.addItem(mi);op.addItem(mu);op.addItem(di);op.addItem(pal);op.addItem(par);op.addItem(sp);
 
-    List<int> list_a, list_b;
+    a = op.getItem(1);
+
+    a.print();
+    b = op.getItem(1);
+
+    if (a == b)
+    a.print();
+    
 
     if (list == '1'){
         while (loop){
-            int lindex=0, litm=0;
+            int lindex=0; 
+            String litm;
             
             cout << "1 : getItem \n2 : addItem \n3 : insertItem \n4 : removeAt \n5 : removeItem \n6 : concat \n7 : print \n8 : END"<< endl;
 
