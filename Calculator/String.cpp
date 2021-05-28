@@ -6,31 +6,35 @@ class String {
     private:
         char* buffer; 
         int length;
-        int size; 
-        String(int m);
+        int size;
 
     public: 
         ~String();
-        String(char* init, int m); 
         String Concat(String t);
         String();
+        String(int m);
         String(String&);
+        String(char* init, int m);
+
         String& operator=(const String&);
-        bool operator==(String t); 
-        bool operator!(); 
-        int Length(); 
-        String Substr(int i, int j); 
-        int Find(String pat); 
-        void print(); 
+        bool operator==(const String& t);
+        bool operator!();
+        int Length();
+        String Substr(int i, int j);
+        int Find(String pat);
+        void print();
+
+    friend ostream& operator<< (ostream& os, String& s);
+    //friend istream& operator>> (istream& is, String& s);
 };
 
-String::String() : String(10) {}
+String::String():String(10) {}
 
 String::~String() {
     delete[] buffer;
 }
 
-String::String(int m) { 
+String::String(int m) {
     size = m;
     buffer = new char[m];
     length = 0; 
@@ -43,7 +47,7 @@ String::String(String& s) : String(s.length + 1) {
     length = s.length;
 }
 
-String& String::operator=(const String& s) { 
+String& String::operator=(const String& s) {
     delete[] buffer;
     buffer = new char[s.length + 1];
     for (int i = 0; i < s.length; i++)
@@ -53,13 +57,17 @@ String& String::operator=(const String& s) {
     return *this;
 }
 
+
 String::String(char* init, int m) : String(m + 1) { 
     for (int i = 0; i < m; i++)
         buffer[i] = init[i]; 
     buffer[m] = '\0'; 
     length = m;
 }
+
 String String::Concat(String t) {
+    //cout << " 3. Concat" << endl;
+
     String result(length + t.length + 1); 
     for (int i = 0; i < length; i++)
         result.buffer[i] = buffer[i];
@@ -71,10 +79,10 @@ String String::Concat(String t) {
     result.buffer[length + t.length] = '\0';
     result.length = length + t.length;
 
-    return result; 
+    return result;
 }
 
-bool String::operator==(String t) { 
+bool String::operator==(const String& t) { 
     for (int i = 0; i < length; i++) {
         if (buffer[i] != t.buffer[i]) 
             return false;
@@ -108,11 +116,48 @@ int String::Find(String pat) {
             if (j == pat.Length()-1)
                 return start;
     }
-    return -1; 
+    return -1;
 }
 
 void String::print() {
-    for (int i = 0; i < length; i++)
-        cout << buffer[i] << endl;
-    //printf("%c", buffer[i]); printf(" : 출력값\n");
+    cout << buffer << endl;
 }
+
+ostream& operator<< (ostream& os, String& s){
+    os << s.buffer;
+    return os;
+}
+/*
+int main() {
+
+    bool alpha, beta;
+
+    String a((char*)"hello", 5); 
+    String b((char*)"world!", 6); 
+    String c = a;
+    String d;
+    
+    cout << a << endl;
+    c = a.Concat(b);
+    c.print(); 
+    alpha = (a == c); 
+    
+    cout << boolalpha << alpha << " : a == c ? (true여야함)" << endl;
+
+    beta = (! c); 
+
+    cout << boolalpha << beta << " : ! c (c= \"hello\", 공백아니므로 false)"<<endl;
+
+    d = b.Substr(1, 3);
+
+    d.print();
+
+
+    printf("위는 b의 1~3 추출 값 orl. \n");
+    printf("%d : a의 길이, 5여야 함\n", a.Length()); 
+    //printf("%d : b에서 ld의 시작 위치, 3이어야 함", b.Find(f)); 
+
+
+    return 0; 
+}
+*/
