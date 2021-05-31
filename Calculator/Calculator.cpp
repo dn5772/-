@@ -39,7 +39,6 @@ Calculator::Calculator(){
     errCode = 0;
     value = 0;
     postfix = sp;
-    tokens.addItem(nu);
 
     op.addItem(nu);op.addItem(pl);op.addItem(mi);op.addItem(mu);op.addItem(di);op.addItem(pal);op.addItem(par);op.addItem(sp);
 
@@ -57,32 +56,36 @@ String Calculator::makeToken(const char* expr, int num){
     }
     
     String token(tmp, num+1);
-    cout << tmp << num << " *" << endl;
-
+    //token.print();
     return token;
 }
 
 int Calculator::setExpression(const char* expr){
-    for (int i=0; i<10; i++){
+    for (int i=0; i<1000; i++){
 
         char* tmp = (char*) expr;
         tmp += i;
         String token;
+        
 
-        if (*tmp=='\0' || *tmp==' ')
+        if (expr[i]==' ')
         continue;
 
-        if ('0' <= expr[i] || expr[i] <= '9'){
+        if (expr[i]=='\0')
+        break;
+
+        if ('/' <= expr[i] && expr[i] <= ':'){
             int j;
-            for (j=i; j<11; j++){
-                if (j < 10){
-                    if (('0' >= expr[j] || expr[j] >= '9')){
+            for (j=i; j<i+10; j++){
+                if (j < 1000){
+                    if (('/' >= expr[j] || expr[j] >= ':')){
                         break;
                     }
                 }
             }
             j--;
             token = makeToken(tmp, j-i);
+            i = j;
         }
         else {
         token = makeToken(tmp, 0);
@@ -91,44 +94,54 @@ int Calculator::setExpression(const char* expr){
         tokens.addItem(token);
         
     }
+    String nu;
+    nu = op.getItem(0);
+    tokens.addItem(nu);
+
+    //tokens.print();
+    //cout<<tokens.getItemCount()<<endl;
+
+    makePostFix();
     
     return 0;
 }
 
 int Calculator::makePostFix(){
-    //cout << "1 " << endl;
     Stack<String> stack;
     String nu((char*)"\0", 1);
+    String sp;
+    sp = op.getItem(7);
     stack.Push(nu);
 
     if (tokens.getItemCount()){
-        int i = 0;
         
 
-        while (1) {
-            if(tokens.getItemCount() > i){
-                String c, c_c;
-                c = tokens.getItem(i);
-                
-                String s, s_c;
-                s = stack.Top();
-                int tokenCase = 0, stackCase = 0;
+        while (tokens.getItemCount() > 0) {
 
-                for (int j=0; j<7; j++){
-                    if (c == op.getItem(j))
-                        tokenCase = j;
+            //cout << " 1. makePostFix " << endl;
+
+            String c;
+            c = tokens.removeAt(0);
+                
+            String s;
+            s = stack.Top();
+            int tokenCase = 8, stackCase = 0;
+
+            for (int j=0; j<7; j++){
+                if (c == op.getItem(j))
+                    tokenCase = j;
                 }
 
-                for (int j=0; j<7; j++){
-                    if (s == op.getItem(j))
-                        stackCase = j;
+            for (int j=0; j<8; j++){
+                if (s == op.getItem(j))
+                    stackCase = j;
                 }
-                
+            cout << " tokenCase = " << tokenCase << " stackCase = " << stackCase << endl;
 
                 switch (tokenCase) {
                     case 1 :
                     if (stackCase == 1 || stackCase == 2){
-                        postfix.Concat(stack.Top()); //스텍에서 출력
+                        postfix = postfix.Concat(s); //스텍에서 출력
                         stack.Pop();     //
                         stack.Push(c);   // 스택에 넣기
                         break;
@@ -140,8 +153,8 @@ int Calculator::makePostFix(){
 
                     case 2 :
                     if (stackCase == 1 || stackCase == 2){
-                        postfix.Concat(stack.Top()); 
-                        stack.Pop();    
+                        postfix = postfix.Concat(s);
+                        stack.Pop();
                         stack.Push(c);   
                         break;
                     }
@@ -151,25 +164,26 @@ int Calculator::makePostFix(){
                     }
                     
                     case 3 :
-                    if (stackCase == 1 || stackCase == 2 || stackCase == 3 || stackCase == 4){
-                        postfix.Concat(stack.Top()); //스텍에서 출력
+                    if ( stackCase == 3 || stackCase == 4){
                         stack.Pop();     //
                         stack.Push(c);   // 스택에 넣기
+                        postfix = postfix.Concat(s); //스텍에서 출력
+
                         break;
                     }
-                    else if (stackCase == 0 || stackCase == 5){
+                    else if (stackCase == 0 || stackCase == 5 || stackCase == 1 || stackCase == 2){
                         stack.Push(c);
                         break;
                     }
 
                     case 4 :
-                    if (stackCase == 1 || stackCase == 2 || stackCase == 3 || stackCase == 4){
-                        postfix.Concat(stack.Top()); //스텍에서 출력
+                    if (stackCase == 3 || stackCase == 4){
+                        postfix = postfix.Concat(s); //스텍에서 출력
                         stack.Pop();     //
                         stack.Push(c);   // 스택에 넣기
                         break;
                     }
-                    else if (stackCase == 0 || stackCase == 5){
+                    else if (stackCase == 1 || stackCase == 2 || stackCase == 0 || stackCase == 5){
                         stack.Push(c);
                         break;
                     }
@@ -179,21 +193,26 @@ int Calculator::makePostFix(){
                         break;
                     
                     case 6 :
-                    while (!stack.IsEmpty() && !(stack.Top() == op.getItem(5)))
-                        postfix.Concat(stack.Top());
+                    while (!(stack.Top() == op.getItem(5))){
+                        postfix = postfix.Concat(stack.Top());
+                        stack.Pop();
+                    }
+                    stack.Pop();
+                    break;
                     
                     case 0 :
-                    while (!stack.IsEmpty())
-                        postfix.Concat(stack.Top());
+                    while (!stack.IsEmpty()){
+                        postfix = postfix.Concat(stack.Top());
+                        stack.Pop();
+                    }
+                    break;
 
                     default :
-                        postfix.Concat(c);
+                        postfix = postfix.Concat(c);
                 }
+                postfix = postfix.Concat(sp);
                 
-                i++;
-                continue;
-            }
-
+                cout << " 2. postfix is = " << postfix << endl;
         }
     }
 
