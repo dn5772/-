@@ -22,6 +22,7 @@ class String {
         int Length();
         String Substr(int i, int j);
         int Find(String pat);
+        int stoint();
         void print();
 
     friend ostream& operator<< (ostream& os, String& s);
@@ -119,6 +120,17 @@ int String::Find(String pat) {
     return -1;
 }
 
+int String::stoint(){
+    int tmp=0;
+
+    for (int i=0; i<length; i++){
+        tmp += (buffer[i] - '0') * pow(10, (length-i-1));
+    }
+    
+    return tmp;
+}
+
+
 void String::print() {
     cout << buffer << endl;
 }
@@ -132,30 +144,33 @@ int main() {
 
     bool alpha, beta;
 
-    String a((char*)"hello", 5); 
+    String a((char*)"177", 3); 
     String b((char*)"world!", 6); 
     String c = a;
     String d;
     
-    cout << a << endl;
-    c = a.Concat(b);
-    c.print(); 
-    alpha = (a == c); 
+    // cout << a << endl;
+    // a.print(); 
+
+    int aa = a.stoint();
+    int bb = a.Length();
+
+    cout << " int = " << aa << " Length = "<< bb << endl;
     
-    cout << boolalpha << alpha << " : a == c ? (true여야함)" << endl;
+    // cout << boolalpha << alpha << " : a == c ? (true여야함)" << endl;
 
-    beta = (! c); 
+    // beta = (! c); 
 
-    cout << boolalpha << beta << " : ! c (c= \"hello\", 공백아니므로 false)"<<endl;
+    // cout << boolalpha << beta << " : ! c (c= \"hello\", 공백아니므로 false)"<<endl;
 
-    d = b.Substr(1, 3);
+    // d = b.Substr(1, 3);
 
-    d.print();
+    // d.print();
 
 
-    printf("위는 b의 1~3 추출 값 orl. \n");
-    printf("%d : a의 길이, 5여야 함\n", a.Length()); 
-    //printf("%d : b에서 ld의 시작 위치, 3이어야 함", b.Find(f)); 
+    // printf("위는 b의 1~3 추출 값 orl. \n");
+    // printf("%d : a의 길이, 5여야 함\n", a.Length()); 
+    // //printf("%d : b에서 ld의 시작 위치, 3이어야 함", b.Find(f)); 
 
 
     return 0; 
