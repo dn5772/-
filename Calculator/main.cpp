@@ -10,27 +10,25 @@ int main(void){
     Calculator c;
 
     cout << "수식을 입력하세요" << endl;
-    cin.getline(expr, 10);
+    cin.getline(expr, 1000);
 
     String posfix;
     c.setExpression(expr);
     
     posfix = c.getPostFix();
-    
 
-    cout << "중위표기식 : " << expr << " 후위표기식 :" << posfix << "." << endl;
-/*
+
     if (!c.setExpression(expr)){
         String posfix = c.getPostFix();
         
         try {
-            cout << "후위표기식 : " << posfix << "결과값 : " << c.getValue() << endl;
+            cout << "중위표기식 : " << expr << "\n후위표기식 :" << posfix << "\n결과값 : " << c.getValue() << endl;
         }
         catch (const char* errmsg){
             cout << errmsg << endl;
         }
     }
-    */
+    
 
     return 0;
 }
