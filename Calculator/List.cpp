@@ -125,7 +125,7 @@ void List<T>::concat(List<T>& list){
 template <typename T> 
 void List<T>::print(){
     for (int i=0; i<itemCount; i++)
-        cout << items[i] << endl;
+        cout << items[i]; 
 }
 
 /*
