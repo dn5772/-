@@ -47,6 +47,9 @@ template <typename T>
 inline T& Stack<T>::Top() const {
   if (IsEmpty())
     throw "Stack is empty"; 
+
+  //cout << stack[top] << "          *top" << "*"<<endl;
+
   return stack[top];
 }
 
@@ -57,10 +60,12 @@ void Stack<T>::Push(const T& item) {
     capacity *= 2;
   }
   stack[++top] = item;
+  //cout << stack[top] << "          #push" << "#" << endl;
 }
 
 template <typename T> void Stack<T>::Pop(){
   if (IsEmpty()) 
     throw "Stack is empty. Cannot delete"; 
-  stack[top--].~T();
+  //cout << stack[top] << "          ^pop" << "^" << endl;
+  top--;
 }
