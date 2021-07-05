@@ -48,7 +48,6 @@ Calculator::Calculator(){
 }
 
 Calculator::~Calculator(){
-
 }
 
 String Calculator::makeToken(const char* expr, int num){
@@ -225,8 +224,7 @@ int Calculator::makePostFix(){
     }
     //postfixToken.removeAt(postfixToken.getItemCount()-1);
     evaluation();
-    // postfixToken.print();
-    // cout << "item count is : " << postfixToken.getItemCount() << endl;
+    
     return error;
 }
 
@@ -237,7 +235,6 @@ int Calculator::evaluation(){
     int num1 = 0, num2 = 0, val = 0;
 
     for (int i=0; i<tokenCount; i++){
-        // cout << " 3. evaluation is = " << endl;
 
         String t;
         t = postfixToken.removeAt(0);
