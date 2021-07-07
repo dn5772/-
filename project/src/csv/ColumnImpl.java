@@ -4,7 +4,6 @@ import java.util.*;
 
 class ColumnImpl implements Column{
 
-//    private String value;
     private String header;
     private int type;                 // 2=String, 1=Double, 0=Int
     private long numericCount;
