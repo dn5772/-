@@ -42,7 +42,6 @@ class TableImpl implements Table {
         ColumnImpl column = (ColumnImpl) columnList.get(byIndexOfColumn);
 
         if (column.getNumericCount()==0) {
-//        if (!column.isNumericColumn()){
             for (int i = 0; i < column.count(); i++) {
                 String s = column.getValue(i);
                 Integer K = 0;
