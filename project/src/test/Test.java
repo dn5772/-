@@ -26,9 +26,9 @@ public class Test {
 //        table.getStats().print();
 
 //        5) 처음 5줄 출력 (새 테이블)
-//        table.head().print();
-//        anotherTable = table.head();
-//        System.out.println("identity test for head(): " + (table.equals(anotherTable) ? "Fail" : "Pass"));
+       table.head().print();
+       anotherTable = table.head();
+       System.out.println("identity test for head(): " + (table.equals(anotherTable) ? "Fail" : "Pass"));
 
 //        6) 지정한 처음 n줄 출력 (새 테이블)
 //        table.head(10).print();
