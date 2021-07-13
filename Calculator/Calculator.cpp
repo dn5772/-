@@ -18,7 +18,7 @@ class Calculator
     Stack<String> tokenStack;
 
     int makePostFix(); //후위 표기식 만들기
-    int evaluation();  //
+    int evaluation(); 
 
     public : 
     
