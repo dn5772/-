@@ -26,9 +26,9 @@ public class Test {
 //        table.getStats().print();
 
 //        5) 처음 5줄 출력 (새 테이블)
-       table.head().print();
-       anotherTable = table.head();
-       System.out.println("identity test for head(): " + (table.equals(anotherTable) ? "Fail" : "Pass"));
+//        table.head().print();
+//        anotherTable = table.head();
+//        System.out.println("identity test for head(): " + (table.equals(anotherTable) ? "Fail" : "Pass"));
 
 //        6) 지정한 처음 n줄 출력 (새 테이블)
 //        table.head(10).print();
@@ -66,7 +66,7 @@ public class Test {
 //        System.out.println("identity test for selectColumnsAt(indices): " + (table.equals(anotherTable) ? "Fail" : "Pass"));
 
 //        11) 테이블을 기준 열인덱스(3)로 정렬한다. 이 때, 오름차순(true), null값은 나중에(false)(원본 테이블 정렬)
-        table.sort(8, false, true).print();
+//         table.sort(8, false, true).print();
 //        anotherTable = table.sort(5, true, false);
 //        System.out.println("identity test for sort(index, asc, nullOrder): " + (!table.equals(anotherTable) ? "Fail" : "Pass"));
 
@@ -118,12 +118,12 @@ public class Test {
 //        System.out.println("(after) null count: " + nullCount);
 
 //        17) (가능한 컬럼에 대하여) table 컬럼마다 평균 0, 표준편차 1로 표준화한다 (원본 테이블 값 변경)
-//        System.out.println("****************************** before standardization ******************************");
-//        table.print();
-//        System.out.println("table.standardize() = " + table.standardize());
-//        System.out.println("****************************** after standardization ******************************");
-//        table.print();
-//        table.getStats().print();
+       System.out.println("****************************** before standardization ******************************");
+       table.print();
+       System.out.println("table.standardize() = " + table.standardize());
+       System.out.println("****************************** after standardization ******************************");
+       table.print();
+       table.getStats().print();
 
 //        18) (가능한 컬럼에 대하여) table 컬럼마다 min 0, max 1로 정규화한다 (원본 테이블 값 변경)
 //        System.out.println("****************************** before normalization ******************************");
