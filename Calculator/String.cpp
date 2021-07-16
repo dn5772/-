@@ -67,7 +67,7 @@ String::String(char* init, int m) : String(m + 1) {
 }
 
 String String::Concat(String t) {
-    //cout << " 3. Concat" << endl;
+    //cout
 
     String result(length + t.length + 1); 
     for (int i = 0; i < length; i++)
