@@ -26,7 +26,7 @@ class String {
         void print();
 
     friend ostream& operator<< (ostream& os, String& s);
-    //friend istream& operator>> (istream& is, String& s);
+    // istream& operator>> (istream& is, String& s);
 };
 
 String::String():String(10) {}
