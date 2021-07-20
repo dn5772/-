@@ -19,7 +19,6 @@ public class CSVs {
                 String[] header = line.split(",", -1);
                 t = new TableImpl(header);
                 line = br.readLine();
-//                System.out.println("*******"+line);
             }
             else {
                 line = br.readLine();
