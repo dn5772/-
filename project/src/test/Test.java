@@ -76,14 +76,14 @@ public class Test {
 //        System.out.println("identity test for CSVs.sort(index, asc, nullOrder): " + (table.equals(anotherTable) ? "Fail" : "Pass"));
 
 //        13) 테이블을 랜덤하게 섞는다. (원본 테이블은 유지, 랜덤하게 섞인 새 테이블 반환)
-//        System.out.println("****************************** before shuffling ******************************");
-//        table.print();
-//        anotherTable = CSVs.shuffle(table);
-//        System.out.println("****************************** after shuffling (copy)******************************");
-//        anotherTable.print();
-//        System.out.println("****************************** after shuffling (original)******************************");
-//        table.print();
-//        System.out.println("identity test for CSVs.shuffle(table): " + (table.equals(anotherTable) ? "Fail" : "Pass"));
+       System.out.println("****************************** before shuffling ******************************");
+       table.print();
+       anotherTable = CSVs.shuffle(table);
+       System.out.println("****************************** after shuffling (copy)******************************");
+       anotherTable.print();
+       System.out.println("****************************** after shuffling (original)******************************");
+       table.print();
+       System.out.println("identity test for CSVs.shuffle(table): " + (table.equals(anotherTable) ? "Fail" : "Pass"));
 
 //        14) 테이블을 랜덤하게 섞는다. (원본 테이블 섞임)
 //        System.out.println("****************************** before shuffling ******************************");
