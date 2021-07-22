@@ -81,11 +81,6 @@ class ColumnImpl implements Column{
         valueList = list;
     }
 
-//    public ColumnImpl(Column c){
-//        header = c.getHeader();
-//        type = c.getT
-//    }
-
     @Override
     public String getHeader() { return header;}
 
