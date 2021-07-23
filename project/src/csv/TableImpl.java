@@ -90,8 +90,6 @@ class TableImpl implements Table {
             }
         }
 
-        //Double Type
-
         else {
             for (int i=0; i<column.count(); i++){ key.add(i); }
             if (isAscending) { //!
