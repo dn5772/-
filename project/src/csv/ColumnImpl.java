@@ -287,7 +287,6 @@ class ColumnImpl implements Column{
                     q1 = doubleList.get(medianIndex/2);
                 }
             }
-
             return q1;
         }
     }
