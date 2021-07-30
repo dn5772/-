@@ -9,7 +9,6 @@ class ColumnImpl implements Column{
     private long numericCount;
     private int longest;
 
-
     private List<String> valueList;
 
 
