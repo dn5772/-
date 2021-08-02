@@ -68,7 +68,6 @@ int Calculator::setExpression(const char* expr){
         char* tmp = (char*) expr;
         tmp += i;
         String token;
-        
 
         if (expr[i]==' ')
         continue;
