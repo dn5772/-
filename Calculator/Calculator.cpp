@@ -88,6 +88,7 @@ int Calculator::setExpression(const char* expr){
             token = makeToken(tmp, j-i);
             i = j;
         }
+
         else {
         token = makeToken(tmp, 0);
         }
