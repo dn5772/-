@@ -33,6 +33,7 @@ class Calculator
     String getPostFix();
 };
 
+
 Calculator::Calculator(){
 
     String nu((char*)"\0", 1);
