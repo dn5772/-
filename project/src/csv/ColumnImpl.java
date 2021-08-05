@@ -55,6 +55,7 @@ class ColumnImpl implements Column{
         }
     }
 
+    
     public ColumnImpl() {
         header = null;
         type = 0;
