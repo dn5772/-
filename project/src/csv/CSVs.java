@@ -69,7 +69,7 @@ public class CSVs {
                     tokenLength++;
 
                 for (int i=0; i< tokenLength; i++) {
-//                    System.out.print(tokens.length);
+                    
                     Column c = t.getColumn(i);
                     if (tokens.length == i){
                         c.setValue(j, "");
