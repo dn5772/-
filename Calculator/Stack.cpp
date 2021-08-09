@@ -32,8 +32,10 @@ void ChangeSize1D(T*& a, const int oldSize, const int newSize) {
 
 template <typename T>
 Stack<T>::Stack(int stackCapacity) : capacity(stackCapacity) {
+    
   if (capacity < 1) 
     throw "Stack capacity must be >0"; 
+    
   stack = new T[capacity];
   top = -1;
 }
