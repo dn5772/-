@@ -20,6 +20,7 @@ class Calculator
     int makePostFix(); //후위 표기식 만들기
     int evaluation(); 
 
+
     public : 
     
     Calculator();
