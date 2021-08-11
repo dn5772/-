@@ -108,7 +108,7 @@ int Calculator::setExpression(const char* expr){
     makePostFix();
     
     return 0;
-}
+
 
 inline void Calculator::conToken(String s){
     String sp;
