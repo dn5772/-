@@ -18,6 +18,7 @@ class Stack {
     void Pop();
 };
 
+
 template <typename T>
 void ChangeSize1D(T*& a, const int oldSize, const int newSize) {
     if (newSize < 0)
