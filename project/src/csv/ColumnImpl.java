@@ -42,6 +42,7 @@ class ColumnImpl implements Column{
                 break;
         }
 
+
         if (valType > type){
             type = valType;
         }
