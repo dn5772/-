@@ -38,6 +38,7 @@ List<T>::~List(){
     delete[] items;
 }
 
+
 template <typename T> 
 T List<T>::getItem(int index){
     if (0 > index && index >= itemCount)
