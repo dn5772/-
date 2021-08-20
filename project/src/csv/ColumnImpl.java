@@ -33,6 +33,7 @@ class ColumnImpl implements Column{
         }
     }
 
+    
     private void inPutValue (String value) {
         int valType = valueType(value);
 
