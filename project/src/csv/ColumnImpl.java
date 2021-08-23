@@ -179,7 +179,6 @@ class ColumnImpl implements Column{
         }
     }
 
-
     public double getNumericMax() throws NumberFormatException{
         if (numericCount == 0){
             throw new NumberFormatException();
