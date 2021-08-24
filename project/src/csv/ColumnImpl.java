@@ -66,6 +66,7 @@ class ColumnImpl implements Column{
         longest = 0;
     }
 
+
     public ColumnImpl(String h){
         header = h;
         type = 0;
