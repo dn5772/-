@@ -3,9 +3,6 @@ package csv;
 import java.io.*;
 
 public class CSVs {
-    /**
-     * @param isFirstLineHeader csv 파일의 첫 라인을 헤더(타이틀)로 처리할까요?
-     */
 
     public static Table createTable(File csv, boolean isFirstLineHeader) throws FileNotFoundException {
         Table t = null;
