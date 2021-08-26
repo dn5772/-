@@ -24,7 +24,6 @@ public class opp4_2 {
             sum += english;
 
             avg = sum/3;
-
             return avg;
         }
         public static void main(String [] args){
