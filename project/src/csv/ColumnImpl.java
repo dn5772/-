@@ -12,7 +12,6 @@ class ColumnImpl implements Column{
 
     private List<String> valueList;
 
-
     private int valueType(String s){
         if (s.isEmpty()){
             return -1;
