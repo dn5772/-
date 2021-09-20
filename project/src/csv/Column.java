@@ -49,6 +49,7 @@ public interface Column {
     double getMedian();
     double getQ3();
 
+    
     // 아래 2개 메소드는 1개 cell이라도 치환했으면, true 반환.
     boolean fillNullWithMean();
     boolean fillNullWithZero();
