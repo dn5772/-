@@ -12,6 +12,7 @@ class Rectangle {
     void print();
 
     int getArea();
+    
 
     Rectangle operator + (Rectangle & r);
     Rectangle operator/(Rectangle& r);
