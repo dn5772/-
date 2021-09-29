@@ -18,8 +18,6 @@ class Rectangle {
     Rectangle operator/(Rectangle& r);
     bool operator==(Rectangle& r);
 
-
-    //private: 
     int x, y, height, width;
 
 };
