@@ -14,6 +14,7 @@ class Rectangle {
     int getArea();
     
 
+
     Rectangle operator + (Rectangle & r);
     Rectangle operator/(Rectangle& r);
     bool operator==(Rectangle& r);
