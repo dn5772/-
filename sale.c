@@ -2,6 +2,7 @@
 #include <stdio.h>
 // #include <Windows.h>
 
+
 int price[4], num[4], count[4] = {0};
 char item0[10], item1[10], item2[10], item3[10];
 
