@@ -21,7 +21,6 @@ class List {
     int removeItem(int itm);
     void concat(List& list);
     void print();
-
     
 };
 
