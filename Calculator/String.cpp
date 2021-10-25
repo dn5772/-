@@ -3,6 +3,7 @@
 using namespace std;
 
 class String { 
+    
     private:
         char* buffer; 
         int length;
