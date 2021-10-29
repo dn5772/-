@@ -1,6 +1,7 @@
 import turtle as t
 import random
 
+
 class Ractangle :
     length = None
     color = []
