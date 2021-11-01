@@ -2,7 +2,6 @@ package csv;
 
 import java.util.*;
 
-
 class ColumnImpl implements Column{
 
     private String header;
