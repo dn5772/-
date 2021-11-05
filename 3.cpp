@@ -101,6 +101,7 @@ void List::insertItem(int index, int itm){
 }
 
 int List::removeAt(int index){
+
     if (0 <= index && index < itemCount){
         int tmp = items[index];
         for (int i=index; i<itemCount; i++){
