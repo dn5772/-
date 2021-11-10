@@ -17,6 +17,7 @@ class Ractangle :
 
         self.x = random.randint(-300, 300)
         self.y = random.randint(-300, 300)
+        
 
     def draw(self):
 
