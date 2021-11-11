@@ -4,7 +4,6 @@
 
 #define N 5//00000
 
-
 int cnt_c=0, cnt_s=0;
 
 inline void exchange (int *a, int *b);
