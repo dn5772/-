@@ -2,6 +2,7 @@
 #include <time.h>
 #include <string.h>
 
+
 #define N 5//00000
 
 int cnt_c=0, cnt_s=0;
