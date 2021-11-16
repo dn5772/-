@@ -13,6 +13,7 @@ void merge_ (int arr[]);
 void quick_ (int arr[]);
 void heap_ (int arr[]);
 
+
 int main (int argc, char* argv[]){
 	int arr[N];
 
