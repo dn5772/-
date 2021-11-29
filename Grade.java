@@ -11,6 +11,7 @@ public class opp4_2 {
             math = science = english = 0;
         }
 
+        
         public Grade(int math, int science, int english) {
             this.math = math;
             this.science = science;
