@@ -8,7 +8,6 @@ class List {
     int itemCount;
     int size;
 
-    
     public :
 
     List();
