@@ -3,6 +3,7 @@
 #include<string.h>
 // #include<termio.h>
 
+
 #define Enword 16
 #define Koword 31
 typedef struct Node
