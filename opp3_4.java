@@ -12,6 +12,7 @@ public class opp3_4 {
             alp++;
         }
 
+
         String s = scanner.next();
         char c = s.charAt(0);
         int a;
