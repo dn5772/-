@@ -8,6 +8,7 @@ class Ractangle :
     x = None
     y = None
 
+
     def __init__(self):
         self.length = 100
 
