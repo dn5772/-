@@ -12,7 +12,6 @@ typedef struct Node
 	struct Node* next;
 }Node;
 
-
 int cnt;
 Node *head;
 Node *cur;
