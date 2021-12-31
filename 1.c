@@ -27,6 +27,7 @@ Node* makeNode()
 	return node;
 }
 
+
 void Sorting()
 {
 	cur = temp = head;
